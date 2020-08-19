@@ -15,9 +15,6 @@
     },
     {
       "path": "./tsconfig.playground.json"
-    },
-    {
-      "path": "./tsconfig.server.json"
     }
   ]
 }
