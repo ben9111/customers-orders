@@ -8,5 +8,8 @@ relies on the Angular CLI to build the application.
 ## Installation & Run
 
 1. npm install
-2. npm start
+2. 
+  ng serve 
+  node server.js 
+
 
