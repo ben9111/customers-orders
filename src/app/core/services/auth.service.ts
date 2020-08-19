@@ -15,10 +15,10 @@ export class AuthService {
     redirectUrl: string;
     @Output() authChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-    constructor(private http: HttpClient, private utilitiesService: UtilitiesService) {  }
+    constructor(private http: HttpClient, private utilitiesService: UtilitiesService) { }
 
     private userAuthChanged(status: boolean) {
-       this.authChanged.emit(status); // Raise changed event
+        this.authChanged.emit(status); // Raise changed event
     }
 
     login(userLogin: IUserLogin): Observable<boolean> {
@@ -48,9 +48,9 @@ export class AuthService {
     private handleError(error: HttpErrorResponse) {
         console.error('server error:', error);
         if (error.error instanceof Error) {
-          const errMessage = error.error.message;
-          return Observable.throw(errMessage);
-          // return Observable.throw(err.text() || 'backend server error');
+            const errMessage = error.error.message;
+            return Observable.throw(errMessage);
+            // return Observable.throw(err.text() || 'backend server error');
         }
         return Observable.throw(error || 'Server error');
     }

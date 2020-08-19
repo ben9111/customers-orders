@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
-export class UtilitiesService {    
+export class UtilitiesService {
     constructor(@Inject('Window') private window: Window) { }
 
     getApiUrl() {
@@ -15,7 +15,8 @@ export class UtilitiesService {
             // for running with Azure Functions local emulator
             if (port === '4200') {
                 // Local run with 'npm run' also started in api folder for Azure Functions
-                return ':7071'; // for debugging Azure Functions locally
+                return ':8080'
+                // return ':7071'; // for debugging Azure Functions locally
             }
             // Running with local node (which serves Angular and the API)
             return ':' + this.window.location.port;

@@ -4,7 +4,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-import { ICustomer, IOrder, IState, IPagedResults, IApiResponse } from '../../shared/interfaces';
+import { ICustomer, IOrder, IState, IPagedResults, IApiResponse, IOrderItem, INewOrder } from '../../shared/interfaces';
 import { UtilitiesService } from './utilities.service';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class DataService {
     orders: IOrder[];
     states: IState[];
 
-    constructor(private http: HttpClient, private utilitiesService: UtilitiesService) {  }
+    constructor(private http: HttpClient, private utilitiesService: UtilitiesService) { }
 
     getCustomersPage(page: number, pageSize: number): Observable<IPagedResults<ICustomer[]>> {
         return this.http.get<ICustomer[]>(
@@ -106,6 +106,11 @@ export class DataService {
         }
     }
 
+    newOrder(order: INewOrder): Observable<ICustomer> {
+        return this.http.put<ICustomer>(`${this.ordersBaseUrl + '/new/' + order.customer.id}`, order)
+    }
+
+
     // Not using now but leaving since they show how to create
     // and work with custom observables
 
@@ -118,6 +123,6 @@ export class DataService {
     //         observer.complete();
     //     });
     // }
-    
+
 
 }

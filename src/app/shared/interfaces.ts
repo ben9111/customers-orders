@@ -36,6 +36,10 @@ export interface IOrderItem {
     productName: string;
     itemCost: number;
 }
+export interface INewOrder {
+    customer: ICustomer,
+    newOrder: IOrder
+}   
 
 export interface IPagedResults<T> {
     totalRecords: number;

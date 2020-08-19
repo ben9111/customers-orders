@@ -1,0 +1,17 @@
+.popup-container {
+    padding: 15px;
+}
+
+.headline-order {
+    font-size: 16px;
+    margin: 15px 0px;
+}
+.h-cust-order {
+    display: flex;
+    align-items: center;
+}
+.h-cust-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 5px;
+}

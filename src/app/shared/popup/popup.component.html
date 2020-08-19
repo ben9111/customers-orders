@@ -1,0 +1,34 @@
+<div>
+    <div class="popup-container">
+
+        <div class="headline-order">
+            <div class="h-cust-order">
+                <div>
+                    New Order to
+                </div>
+                <div class="h-cust-name">
+                    {{(customer.firstName |capitalize) + ' '+ (customer.lastName|capitalize)}}
+                </div>
+            </div>
+        </div>
+        <form [formGroup]="order" #ref="ngForm" (ngSubmit)="submitOrder()">
+            <div class="form-group" [ngClass]="{'has-error':((order.controls.productName.touched || order.controls.productName.dirty || ref.submitted) && 
+                !order.controls.productName.valid)}">
+                <label>Product Name</label>
+                <input type="text" class="form-control" formControlName="productName" placeholder="Enter product name"
+                    required>
+                <small class="form-text text-muted">Enter product</small>
+            </div>
+            <div class="form-group" [ngClass]="{'has-error':((order.controls.itemCost.touched || order.controls.itemCost.dirty || ref.submitted) && 
+            !order.controls.itemCost.valid)}">
+                <label>Price</label>
+                <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input type="number" class="form-control" formControlName="itemCost" placeholder="Enter price">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
