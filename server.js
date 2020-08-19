@@ -121,7 +121,7 @@ app.put('/api/orders/new/:id', function (req, res) {
     let cust = customers
         .filter(cust => cust.id == customerId)
         .find(r => r)
-    cust ? cust.orders.push(newOrder) : cust;
+    cust ? (cust.orders ? cust.orders.push(newOrder) : cust.orders = [newOrder]) : cust;
     res.json(cust);
 
 });

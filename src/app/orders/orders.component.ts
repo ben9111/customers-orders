@@ -13,6 +13,7 @@ import { PopupComponent } from '../shared/popup/popup.component';
 export class OrdersComponent implements OnInit {
     modalRef: BsModalRef;
     customers: ICustomer[];
+    currentPage: number = 1;
     totalRecords = 0;
     pageSize = 5;
 
@@ -26,6 +27,7 @@ export class OrdersComponent implements OnInit {
     }
 
     pageChanged(page: number) {
+        this.currentPage = page;
         this.getCustomersPage(page);
     }
 
@@ -41,7 +43,7 @@ export class OrdersComponent implements OnInit {
         this.modalRef = this.modalService.show(PopupComponent, { initialState: { customer: cs } });
         this.modalRef.content
             .IsOrderSuccess
-            .subscribe((res: boolean) => res ? this.getCustomersPage(1) : '');
+            .subscribe((res: boolean) => res ? this.getCustomersPage(this.currentPage) : '');
     }
 
 }
