@@ -14,7 +14,6 @@ describe('PopupComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         PopupComponent,
-
       ],
       imports: [
         CoreModule,
