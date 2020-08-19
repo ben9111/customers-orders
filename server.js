@@ -12,6 +12,7 @@ var express = require('express'),
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
 //CORS
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -140,7 +141,7 @@ app.post('/api/auth/logout', (req, res) => {
 
 if (!inContainer) {
     // redirect all others to the index (HTML5 history)
-    app.all('/*', function (req, res) {
+    app.get('*', function (req, res) {
         res.sendFile(__dirname + '/dist/index.html');
     });
 }
