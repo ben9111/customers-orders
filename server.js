@@ -5,8 +5,8 @@ var express = require('express'),
     app = express(),
     customers = JSON.parse(fs.readFileSync('data/customers.json', 'utf-8')),
     states = JSON.parse(fs.readFileSync('data/states.json', 'utf-8')),
-    inContainer = process.env.CONTAINER,
-    inAzure = process.env.WEBSITE_RESOURCE_GROUP,
+    inContainer = false,
+    inAzure = false,
     port = process.env.PORT || 8080;
 
 app.use(bodyParser.urlencoded({ extended: true }));
